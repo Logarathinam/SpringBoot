@@ -25,4 +25,22 @@ public class TopicsService {
     public void addTopic(pojo topic) {
          topics.add(topic);
     }
+
+    public void UpdateTopic(int id,pojo topic) {
+         for(int i=0;i<topics.size();i++)
+         {
+             pojo t=topics.get(i);
+             System.out.println(t.getId());
+             System.out.println(id);
+             if(t.getId()==id)
+             {
+                 topics.set(i,topic);
+                 return;
+             }
+         }
+    }
+
+    public void DeleteTopic(int id) {
+         topics.removeIf(t->t.getId()==id);
+    }
 }
